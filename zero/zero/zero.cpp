@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <string>
-
+#include <regex>
 using namespace std;
 
 class Publication {
@@ -91,17 +91,25 @@ private:
     int Tom;
     int PubCount;
 public:
-    int setIzd;
-    int getIzd;
+    void setIzd(string a) {
+        Izd = a;
+    }
+    string getIzd() {
+        return Izd;
+    };
     int getNumber;
+
     int setNumber;
+
     int getScoups;
     int setScoups;
     int getWebOfScience;
     int setWebOfScience;
     int getRINC;
     int setRINC;
-    int getISBN;
+    string getISBN() {
+        return ISBN;
+    };
 };
 
 
@@ -111,8 +119,17 @@ private:
     int Pstart;
     int Pend;
 public:
-    string setAuthor;
-    string getAuthor;
+    void setAuthor(string a) {
+        if (a == "" or a == " ") {
+            cout << "Invalid param";
+        }
+        else {
+            Author = a;
+        }
+    }
+    string getAuthor() {
+        return Author;
+    };
     int setPageStart;
     int getPageStart;
     int setPageEnd;
